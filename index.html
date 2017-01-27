@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MyCalcJS</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div class="wrap" >
+        <div class="calculator">
+            <div class="head">
+                <input type="text" id="screen" value="0" readonly>
+            </div>
+            <div class=keys>
+                <div id="firstline">
+                    <input class="btn" type="button" value="(" onClick='math("(")'>
+                    <input class="btn" type="button" value=")" onClick='math(")")'>
+                    <input class="btn" type="button" value="x" onClick='math("*")'>
+                    <input class="btn" type="button" value="/" onClick='math("/")'>
+                </div>
+                <div id="secondline">
+                    <input class="btn" type="button" value="7" onclick='math("7")'>
+                    <input class="btn" type="button" value="8" onclick='math("8")'>
+                    <input class="btn" type="button" value="9" onclick='math("9")'>
+                    <input class="btn" type="button" value="+" onclick='math("+")'>
+                </div>
+                <div id="thirdline">
+                    <input class="btn" type="button" value="4" onclick='math("4")'>
+                    <input class="btn" type="button" value="5" onclick='math("5")'>
+                    <input class="btn" type="button" value="6" onclick='math("6")'>
+                    <input class="btn" type="button" value="-" onclick='math("-")'>
+                </div>
+                <div id="fourthline">
+                    <input class="btn" type="button" value="1" onclick='math("1")'>
+                    <input class="btn" type="button" value="2" onclick='math("2")'>
+                    <input class="btn" type="button" value="3" onclick='math("3")'>
+                    <input class="btn" type="button" value="C" onclick='c("0")'>
+                </div>
+                <div id="fifthline">
+                    <input class="btn" type="button" value="0" onclick='math("0")'>
+                    <input class="btn" type="button" value="," onclick='math(".")'>
+                    <input class="btn" type="button" value="," onclick='math(".")'>
+                    <input class="btn" type="button" value="=" onclick='equal()'>
+                </div>
+            </div>
+        </div>
+        <div id="memo">
+            <h4>Here there are your operations and results:</h4>
+            <p id="memtab">...</p>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="index.js"></script>
+    
+</body>
