@@ -22,3 +22,7 @@ function equal () {
     document.getElementById ("screen").value = "Error";
 };
 }
+
+function ch() {
+    document.getElementById ("clearh").innerHTML = "";
+}
