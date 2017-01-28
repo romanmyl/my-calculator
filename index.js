@@ -24,5 +24,5 @@ function equal () {
 }
 
 function ch() {
-    document.getElementById ("clearh").innerHTML = "";
+    document.getElementById ("memtab").innerHTML = "";
 }

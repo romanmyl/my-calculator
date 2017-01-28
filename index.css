@@ -131,7 +131,7 @@ background-color: #222222;
 }
 
 #memo {
-    height: 639px;
+    height: 640px;
     width: 358px;
     font-size: 1.0em;
     background-color: #2d3035;
@@ -164,9 +164,9 @@ background-color: #222222;
     border-style: none;
 }
 
-#clearh {
+#cmem {
     width: 358px;
-    height: 37px;
+    height: 38px;
     text-align: center;
     color: gray;
     font-family: arial,sans-serif;
@@ -177,12 +177,10 @@ background-color: #222222;
     outline: none;
     background-color: #2d3035;
     border: 1px solid rgba(33,43,52,1);
-    box-shadow:
-    inset 0 2px rgba(72,72,72,1);
+    box-shadow: inset 0 2px rgba(72,72,72,1);
 }
 
-#clearh:active {
-    box-shadow:
-    inset 3px 0 -6 2px rgba(5,5,5,.47);
-    color: rgba(106,106,106);
+#cmem:active {
+    box-shadow: inset 3px 0 7px -1px rgba(5,5,5,.47);
+    color: rgba(106,106,106,0.8);
 }
