@@ -4,46 +4,47 @@
     <meta charset="utf-8">
     <title>MyCalcJS</title>
     <link rel="stylesheet" type="text/css" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans|Source+Sans+Pro:300|Work+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
 </head>
 <body>
     <div class="wrap" >
         <div class="calculator">
             <div class="head">
                 <div id="headline">MyCalcJS</div>
-                <input type="text" id="screen" value="0" readonly>
+                <p id="screen">0</p>
                 <div id="underline">...</div>
             </div>
             <div class=keys>
                 <div id="firstline">
-                    <input class="btn" type="button" value="(" onClick='math("(")'>
-                    <input class="btn" type="button" value=")" onClick='math(")")'>
-                    <input class="btn" type="button" value="x" onClick='math("*")'>
-                    <input class="btn" type="button" value="/" onClick='math("/")'>
+                    <input class="btnc" type="button" value="C" onclick='c("0")'>
+                    <input class="btnf" type="button" id="back" value="&#9668;" onclick='del()'>
+                    <input class="btnf" type="button" value="&#215;" onclick='operator("&#215;")'>
+                    <input class="btnf" type="button" value="&#247;" onclick='operator("&#247;")'>
                 </div>
                 <div id="secondline">
                     <input class="btn" type="button" value="7" onclick='math("7")'>
                     <input class="btn" type="button" value="8" onclick='math("8")'>
                     <input class="btn" type="button" value="9" onclick='math("9")'>
-                    <input class="btn" type="button" value="+" onclick='math("+")'>
+                    <input class="btnf" type="button" value="+" onclick='operator("+")'>
                 </div>
                 <div id="thirdline">
                     <input class="btn" type="button" value="4" onclick='math("4")'>
                     <input class="btn" type="button" value="5" onclick='math("5")'>
                     <input class="btn" type="button" value="6" onclick='math("6")'>
-                    <input class="btn" type="button" value="-" onclick='math("-")'>
+                    <input class="btnf" type="button" value="-" onclick='operMore("-")'>
                 </div>
                 <div id="fourthline">
                     <input class="btn" type="button" value="1" onclick='math("1")'>
                     <input class="btn" type="button" value="2" onclick='math("2")'>
                     <input class="btn" type="button" value="3" onclick='math("3")'>
-                    <input class="btn" type="button" value="C" onclick='c("0")'>
+                    <input class="btnf" type="button" value="&#8730;" onclick='operMore("&#8730;")'>
                 </div>
                 <div id="fifthline">
                     <input class="btn" type="button" value="0" onclick='math("0")'>
-                    <input class="btn" type="button" value="." onclick='math(".")'>
-                    <input class="btn" type="button" value="," onclick='math(".")'>
-                    <input class="btn" type="button" value="=" onclick='equal()'>
+                    <input class="btn" type="button" value="." onclick='dot(".")'>
+                    <input id="bron" type="button" value="(" onclick='operMore("(")'>
+                    <input id="broff" type="button" value=")" onclick='operMore(")")'>
+                    <input class="btne" type="button" value="=" onclick='evl()'>
                 </div>
             </div>
         </div>
@@ -57,3 +58,4 @@
     <script type="text/javascript" src="index.js"></script>
     
 </body>
+</html>
