@@ -1,267 +1,269 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
-*/
+   */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+   html, body, div, span, applet, object, iframe,
+   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+   a, abbr, acronym, address, big, cite, code,
+   del, dfn, em, img, ins, kbd, q, s, samp,
+   small, strike, strong, sub, sup, tt, var,
+   b, u, i, center,
+   dl, dt, dd, ol, ul, li,
+   fieldset, form, label, legend,
+   table, caption, tbody, tfoot, thead, tr, th, td,
+   article, aside, canvas, details, embed, 
+   figure, figcaption, footer, header, hgroup, 
+   menu, nav, output, ruby, section, summary,
+   time, mark, audio, video {
+   	margin: 0;
+   	padding: 0;
+   	border: 0;
+   	font-size: 100%;
+   	font: inherit;
+   	vertical-align: baseline;
+   }
+   /* HTML5 display-role reset for older browsers */
+   article, aside, details, figcaption, figure, 
+   footer, header, hgroup, menu, nav, section {
+   	display: block;
+   }
+   body {
+   	line-height: 1;
+   }
+   ol, ul {
+   	list-style: none;
+   }
+   blockquote, q {
+   	quotes: none;
+   }
+   blockquote:before, blockquote:after,
+   q:before, q:after {
+   	content: '';
+   	content: none;
+   }
+   table {
+   	border-collapse: collapse;
+   	border-spacing: 0;
+   }
 
 
-html, body {
-direction: ltr;
-max-height: 600px;
-background-color: #222222;
-}
+   html, body {
+   	direction: ltr;
+   	max-height: 600px;
+   	background-color: #222222;
+   }
 
-.wrap {
-    display: flex;
-    width: 690px;
-    margin: 20px auto;
-    box-shadow: 0 0 50px 0 black;
-}
-.calculator {
-    height: 642px;
-    background-color: gray;
-}
+   .wrap {
+   	display: flex;
+   	width: 690px;
+   	margin: 20px auto;
+   	box-shadow: 0 0 50px 0 black;
+   }
+   .calculator {
+   	height: 642px;
+   	background-color: gray;
+   }
 
-.head  {
-	background-color: black;
-}
-#headline {
-    width: 338px;
-    height: 34px;
-    padding: 12px 0 0 20px;
-    color: white;
-    font-size: 1.2em;
-    font-family: arial,sans-serif;
-    background-color: #00798c;
-    box-shadow: inset 0 -2px rgb(0, 75, 87);
-}
-#underline {
-    width: 356px;
-    height: 35px;
-    text-align: center;
-    color: gray;
-    font-family: arial,sans-serif;
-    font-size: 2.0em;
-    background-color: #2d3035;
-    border: 1px solid rgba(33,43,52,1);
-    box-shadow:
-    inset 0 2px rgba(72,72,72,1);
-}
+   .head  {
+   	background-color: black;
+   }
+   #headline {
+   	width: 338px;
+   	height: 34px;
+   	padding: 12px 0 0 20px;
+   	color: white;
+   	font-size: 1.2em;
+   	font-family: arial,sans-serif;
+   	background-color: #00798c;
+   	box-shadow:
+   	inset 0 -2px rgb(0, 75, 87);
+   }
+   #underline {
+   	width: 356px;
+   	height: 35px;
+   	text-align: center;
+   	color: gray;
+   	font-family: arial,sans-serif;
+   	font-size: 2.0em;
+   	background-color: #2d3035;
+   	border: 1px solid rgba(33,43,52,1);
+   	box-shadow:
+   	inset 0 2px rgba(72,72,72,1);
+   }
    
-#screen {
-    text-align: right;
-    width: 346px;
-    height: 150px;
-    font-size: 3.2em;
-    font-family: 'Work Sans', sans-serif;
-    color: white;
-    padding: 20px 10px 3px 2px;
-    margin-bottom: 20px;
-    background-color: black;
-    border-style: none;
-    word-break: break-all;
-    overflow: hidden;
-}
+   #screen {
+   	text-align: right;
+   	width: 346px;
+   	height: 150px;
+   	font-size: 3.2em;
+   	font-family: 'Work Sans', sans-serif;
+   	color: white;
+   	padding: 20px 10px 3px 2px;
+   	margin-bottom: 20px;
+   	background-color: black;
+   	border-style: none;
+   	word-break: break-all;
+   	overflow: hidden;
+   }
 
-span {
-    font-size: inherit;
-    font-family: 'Work Sans', sans-serif;
-    color: rgb(73,155,225);
-}
-.result {
-	font-size: inherit;
-	font-family: inherit;
-	color: rgb(80,174,58);
-}
- 
-.btn, .btnf, .btnc, .btne, #bron, #broff {
-    height: 73px;
-    font-size: 300%;
-    padding: 0;
-    margin: 0 -4px 0 0;
-    
-    display: inline-block;
-    font-family: 'Work Sans', sans-serif;
-    color: white;
-    text-shadow: 0 -1px rgb(46,53,58);
-    text-decoration: none;
-    user-select: none;
-    line-height: 130%;
-    outline: none;
-}
-.btn {
-    width: 89.7px;
-    border: 1px solid rgba(33,43,52,1);
-    background-color: rgb(113,122,129);
-    box-shadow: inset 2px 1px rgb(135,148,160),
-    inset 0 0 1px rgba(140,150,170,.8);
-}
-.btn:active {
-    box-shadow: inset -2px -2px 0 -3px rgba(83,88,89,0.93),
-    inset -2px -2px 0 -1px rgba(49,49,49,.37);  
-}
+   span {
+   	font-size: inherit;
+   	font-family: 'Work Sans', sans-serif;
+   	color: rgb(73,155,225);
+   }
 
-#bron, #broff {
-    width: 44.85px;
-    border: 1px solid rgba(33,43,52,1);
-    background-color: rgb(113,122,129);
-    box-shadow: inset 2px 1px rgb(135,148,160),
-    inset 0 0 1px rgba(140,150,170,.8);
-}
-#bron:active {
-    box-shadow: inset -2px -2px 0 -3px rgba(83,88,89,0.93),
-    inset -2px -2px 0 -1px rgba(49,49,49,.37);  
-}
+   .number {
+   	font-size: inherit;
+   	font-family: inherit;
+   	color: white;
+   }
 
-#broff:active {
-    box-shadow: inset -2px -2px 0 -3px rgba(83,88,89,0.93),
-    inset -2px -2px 0 -1px rgba(49,49,49,.37);  
-}
+   .result {
+   	font-size: inherit;
+   	font-family: inherit;
+   	color: rgb(80,174,58);
+   }
+   
+   .btn, .btnf, .btnc, .btne, #bron, #broff {
+   	height: 73px;
+   	font-size: 300%;
+   	padding: 0;
+   	margin: 0 -4px 0 0;
+   	
+   	display: inline-block;
+   	font-family: 'Work Sans', sans-serif;
+   	color: white;
+   	text-shadow: 0 -1px rgb(46,53,58);
+   	text-decoration: none;
+   	user-select: none;
+   	line-height: 130%;
+   	outline: none;
+   }
+   .btn {
+   	width: 89.7px;
+   	border: 1px solid rgba(33,43,52,1);
+   	background-color: rgb(113,122,129);
+   	box-shadow: inset 2px 1px rgb(135,148,160),
+   	inset 0 0 1px rgba(140,150,170,.8);
+   }
+   .btn:active {
+   	box-shadow: inset -2px -2px 0 -3px rgba(83,88,89,0.93),
+   	inset -2px -2px 0 -1px rgba(49,49,49,.37);  
+   }
+
+   #bron, #broff {
+   	width: 44.85px;
+   	border: 1px solid rgba(33,43,52,1);
+   	background-color: rgb(113,122,129);
+   	box-shadow: inset 2px 1px rgb(135,148,160),
+   	inset 0 0 1px rgba(140,150,170,.8);
+   }
+   #bron:active {
+   	box-shadow: inset -2px -2px 0 -3px rgba(83,88,89,0.93),
+   	inset -2px -2px 0 -1px rgba(49,49,49,.37);  
+   }
+
+   #broff:active {
+   	box-shadow: inset -2px -2px 0 -3px rgba(83,88,89,0.93),
+   	inset -2px -2px 0 -1px rgba(49,49,49,.37);  
+   }
 
 
-.btnf {
-    width: 89.7px;
-    border: 1px solid rgba(33,43,52,1);
-    background-color: rgba(84,89,93,1);
-    box-shadow: inset 2px 1px rgb(103,110,116),
-    inset 0 0 1px rgba(140,150,170,.8);
-}
-.btnf:active {
-    box-shadow: inset -2px -2px 0 -3px rgb(51,50,45),
-    inset -2px -2px 0 -1px rgba(17,11,5,.37);  
-}
+   .btnf {
+   	width: 89.7px;
+   	border: 1px solid rgba(33,43,52,1);
+   	background-color: rgba(84,89,93,1);
+   	box-shadow: inset 2px 1px rgb(103,110,116),
+   	inset 0 0 1px rgba(140,150,170,.8);
+   }
+   .btnf:active {
+   	box-shadow: inset -2px -2px 0 -3px rgb(51,50,45),
+   	inset -2px -2px 0 -1px rgba(17,11,5,.37);  
+   }
 
-.btnc {
-    width: 89.7px;
-    border: 1px solid rgba(33,43,52,1);
-    background-color: rgb(70,128,178);
-    box-shadow: inset 2px 1px rgb(73,155,225),
-    inset 0 0 1px rgba(140,150,170,.8);
-}
-.btnc:active {
-    box-shadow: inset -2px -2px 0 -3px rgb(21,95,154),
-    inset -2px -2px 0 -1px rgba(-13,56,114,.37);  
-}
+   .btnc {
+   	width: 89.7px;
+   	border: 1px solid rgba(33,43,52,1);
+   	background-color: rgb(70,128,178);
+   	box-shadow: inset 2px 1px rgb(73,155,225),
+   	inset 0 0 1px rgba(140,150,170,.8);
+   }
+   .btnc:active {
+   	box-shadow: inset -2px -2px 0 -3px rgb(21,95,154),
+   	inset -2px -2px 0 -1px rgba(-13,56,114,.37);  
+   }
 
-.btne {
-    width: 89.7px;
-    border: 1px solid rgba(33,43,52,1);
-    background-color: rgb(62,199,8);
-    box-shadow: inset 2px 1px rgb(106,255,48),
-    inset 0 0 1px rgba(140,150,170,.8);
-}
-.btne:active {
-    box-shadow: inset -2px -2px 0 -3px rgb(54,195,-22),
-    inset -2px -2px 0 -1px rgba(20,156,-62,.37);  
-}
+   .btne {
+   	width: 89.7px;
+   	border: 1px solid rgba(33,43,52,1);
+   	background-color: rgb(62,199,8);
+   	box-shadow: inset 2px 1px rgb(106,255,48),
+   	inset 0 0 1px rgba(140,150,170,.8);
+   }
+   .btne:active {
+   	box-shadow: inset -2px -2px 0 -3px rgb(54,195,-22),
+   	inset -2px -2px 0 -1px rgba(20,156,-62,.37);  
+   }
 
-#back {
-	color: #499be1;
-	font-size: 200%;
-	vertical-align: 5.4px;
-}
+   .keys {
+   	display: inline-block;
+   }
 
-.keys {
-    display: inline-block;
-}
+   #memo {
+   	height: 640px;
+   	width: 358px;
+   	font-size: 1.0em;
+   	background-color: #2d3035;
+   	border-left: 2px solid rgba(94,116,135,1);
+   }
 
-#memo {
-    height: 640px;
-    width: 358px;
-    font-size: 1.0em;
-    background-color: #2d3035;
-    border-left: 2px solid rgba(94,116,135,1);
-}
+   #memlineone {
+   	width: 356px;
+   	height: 32px;
+   	padding-top: 12px;
+   	text-align: center;
+   	color: gray;
+   	font-size: 1.2em;
+   	font-family: arial,sans-serif;
+   	background-color: #2d3035;
+   	border: 1px solid rgba(33,43,52,1);
+   	box-shadow:
+   	inset 0 -2px rgba(72,72,72,1);
+   }
 
-#memlineone {
-    width: 356px;
-    height: 32px;
-    padding-top: 12px;
-    text-align: center;
-    color: gray;
-    font-size: 1.2em;
-    font-family: arial,sans-serif;
-    background-color: #2d3035;
-    border: 1px solid rgba(33,43,52,1);
-    box-shadow:
-    inset 0 -2px rgba(72,72,72,1);
-}
+   #memtab {
+   	text-align: right;
+   	width: 338px;
+   	height: 536px;
+   	font-size: 2.0em;
+   	font-family: 'Work Sans', sans-serif;
+   	color: white;
+   	padding: 10px;
+   	background-color: black;
+   	border-style: none;
+   	word-break: break-all;
+   	overflow-x: hidden;
+   	overflow-y: auto;
+   }
 
-#memtab {
-    text-align: right;
-    width: 338px;
-    height: 536px;
-    font-size: 2.0em;
-    font-family: 'Work Sans', sans-serif;
-    color: white;
-    padding: 10px;
-    background-color: black;
-    border-style: none;
-    word-break: break-all;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
+   #cmem {
+   	width: 358px;
+   	height: 38px;
+   	text-align: center;
+   	color: gray;
+   	font-family: arial,sans-serif;
+   	font-size: 1.2em;
+   	text-decoration: none;
+   	user-select: none;
+   	line-height: 100%;
+   	outline: none;
+   	background-color: #2d3035;
+   	border: 1px solid rgba(33,43,52,1);
+   	box-shadow: inset 0 2px rgba(72,72,72,1);
+   }
 
-#cmem {
-    width: 358px;
-    height: 38px;
-    text-align: center;
-    color: gray;
-    font-family: arial,sans-serif;
-    font-size: 1.2em;
-    text-decoration: none;
-    user-select: none;
-    line-height: 100%;
-    outline: none;
-    background-color: #2d3035;
-    border: 1px solid rgba(33,43,52,1);
-    box-shadow: inset 0 2px rgba(72,72,72,1);
-}
-
-#cmem:active {
-    box-shadow: inset 3px 0 7px -1px rgba(5,5,5,.47);
-    color: rgba(106,106,106,0.8);
-}
+   #cmem:active {
+   	box-shadow: inset 3px 0 7px -1px rgba(5,5,5,.47);
+   	color: rgba(106,106,106,0.8);
+   }
