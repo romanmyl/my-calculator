@@ -2,6 +2,36 @@
 var resultMyCalcJs = 0;
 var memtabBeforOperation = "";
 
+addEventListener("keydown", function(event) {
+    if ((event.keyCode == 56 && event.shiftKey) || event.keyCode == 38) {
+        operator("&#215;");
+    } else if ((event.keyCode == 187 && event.shiftKey) || event.keyCode == 39) {
+        operator("+");
+    } else if (event.keyCode == 40 && event.shiftKey) {
+        operBefor("&#8730;(");
+    } else if (event.keyCode == 57 && event.shiftKey) {
+        operBefor("(");
+    }else if (event.keyCode == 48 && event.shiftKey) {
+        operBrClose(")");
+    } else if (event.keyCode == 46 && event.shiftKey) {
+        ch();
+    } else if (event.keyCode == 191 || event.keyCode == 40) {
+        operator("&#247;");
+    } else if (event.keyCode == 189 || event.keyCode == 37) {
+        operMinus("-");
+    } else if (event.keyCode == 191 || event.keyCode == 190) {
+        dot(".");
+    } else if (event.keyCode > 47 && event.keyCode < 58) {
+        var i = event.keyCode - 48;
+        math(i);
+    } else if (event.keyCode == 13) {
+        evl();
+    } else if (event.keyCode == 46) {
+        c();
+    } else if (event.keyCode == 8) {
+        del();
+    };
+})
 
 function math(i) {
     var screen = document.getElementById("screen");
