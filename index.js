@@ -33,28 +33,110 @@ addEventListener("keydown", function(event) {
     };
 })
 
+function pi() {
+    var screen = document.getElementById("screen");
+    var memtab = document.getElementById("memtab");
+    var pi = Math.PI.toFixed(7);
+    var num = Number(screen.innerText);
+    if (screen.innerHTML.endsWith(num)) {
+         if (screen.innerHTML == "0") {
+        screen.innerHTML = pi;
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+            screen.scroollTop = 9999;
+            memtab.scrollTop = 9999;
+    } else {
+        screen.innerHTML += "";
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+            screen.scroollTop = 9999;
+            memtab.scrollTop = 9999;
+    };
+    } else if (screen.innerHTML.endsWith(pi)) {
+        screen.innerHTML += "";
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+            screen.scroollTop = 9999;
+            memtab.scrollTop = 9999;
+} else if (screen.innerHTML == "0" || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
+        screen.innerHTML = pi;
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+            screen.scroollTop = 9999;
+            memtab.scrollTop = 9999;
+    } else {
+        screen.innerHTML += pi;
+        memtab.innerHTML += pi;
+            screen.scrollTop = 9999;
+            memtab.scrollTop = 9999;
+};
+}
+
+    function devx() {
+        var screen = document.getElementById("screen");
+        var memtab = document.getElementById("memtab");
+        var op1 = "<span>1&#247;(</span>";
+        var op2 = "<span>)</span>";
+        if (screen.innerHTML == "0" || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
+            if ( screen.innerHTML.includes("=")) {
+                screen.innerHTML = op1 + resultMyCalcJs +op2;
+                memtab.innerHTML = memtabBeforOperation + op1 + resultMyCalcJs + op2;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+            } else {
+             screen.innerHTML = op1;
+             memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+         }; } else {
+            screen.innerHTML = op1 + screen.innerHTML + op2;
+            memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+        }
+    }
+
+    function pow2() {
+    var screen = document.getElementById("screen");
+    var memtab = document.getElementById("memtab");
+    var op1 = "<span>(</span>";
+        var op2 = "<span>)&#178;</span>";
+    if (screen.innerText.endsWith("²") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
+        if (screen.innerHTML.includes("=")) {
+            screen.innerHTML = op1 + resultMyCalcJs + op2;
+            memtab.innerHTML = memtabBeforOperation + op1 + resultMyCalcJs + op2;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+        } else {
+            screen.innerHTML = op1 + screen.innerHTML + op2;
+            memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+            } } ;
+    }
+
 function math(i) {
     var screen = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
+    var pi =Math.PI.toFixed(7);
     if (screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
         screen.innerHTML = i;
         memtab.innerHTML += i;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     } else if ( screen.innerHTML == 0 && i == 0) {
         screen.innerHTML = i;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     } else if (screen .innerHTML == 0 && i !== 0 ) {
         screen.innerHTML = i;
         memtab.innerHTML += i;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+    } else if (screen.innerHTML.endsWith(pi)) {
+        screen.innerHTML += "";
+        memtab.innerHTML += "";
     } else {
        screen.innerHTML += i;
        memtab.innerHTML += i;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
    }; 
 }
 
@@ -64,13 +146,13 @@ function dot(d) {
     if (screen.innerHTML.endsWith(d) || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
         screen.innerHTML += "";
         memtab.innerHTML += "";
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     } else {
         screen.innerHTML += d;
         memtab.innerHTML += d;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     };
 }
 
@@ -78,18 +160,18 @@ function operator(opr) {
     var screen = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
     var op = "<span>" + opr + "</span>";
-    if (screen.innerHTML != "0" && screen.innerHTML != "Error") {
+    if (screen.innerText.endsWith(opr) == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
         if (screen.innerHTML.includes("=")) {
             screen.innerHTML = resultMyCalcJs + op;
             memtab.innerHTML = memtabBeforOperation + resultMyCalcJs + op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
         }
         else {
             screen.innerHTML += op;
             memtab.innerHTML += op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
         } } ;
     }
 
@@ -97,22 +179,22 @@ function operator(opr) {
         var screen = document.getElementById("screen");
         var memtab = document.getElementById("memtab");
         var op = "<span>" + opr + "</span>";
-        if ( screen.innerHTML == "0" || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
+        if (screen.innerHTML == "0" || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
             if ( screen.innerHTML.includes("=")) {
                 screen.innerHTML = op + resultMyCalcJs;
                 memtab.innerHTML = memtabBeforOperation + op + resultMyCalcJs;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
             } else {
              screen.innerHTML = op;
              memtab.innerHTML += op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
          }; } else {
             screen.innerHTML += op;
             memtab.innerHTML += op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
         }
     }
 
@@ -124,18 +206,18 @@ function operator(opr) {
             if ( screen.innerHTML.includes("=")) {
                 screen.innerHTML = resultMyCalcJs + op;
                 memtab.innerHTML = memtabBeforOperation + resultMyCalcJs + op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
             }   else {
                screen.innerHTML = op;
                memtab.innerHTML += op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
            } } else {
             screen.innerHTML += op;
             memtab.innerHTML += op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
         } 
     }
 
@@ -147,8 +229,8 @@ function operator(opr) {
         if ( screen.innerHTML !== "0" && screen.innerHTML !== "Error" && countBrickets > 0 && screen.innerHTML.includes("=") == false) {
          screen.innerHTML += op;
          memtab.innerHTML += op;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
      };
  }
 
@@ -157,8 +239,8 @@ function operator(opr) {
     var memtab = document.getElementById("memtab");
     screen.innerHTML = "0";
     memtab.innerHTML = memtabBeforOperation;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
 }
 
 function evl() {
@@ -168,6 +250,8 @@ function evl() {
           getText = getText.replace( /×/g, "*");
           getText = getText.replace( /÷/g, "/");
           getText = getText.replace( /√/g, "Math.sqrt");
+
+          getText = (getText.includes("²")) ? "Math.pow(" + getText.replace( /²/g, "") + ", 2)" :  getText;
     
     var br = "<br>";
     var brso = "<br><span class='result'>";
@@ -176,8 +260,8 @@ function evl() {
         if (screen.innerHTML.includes("=") || screen.innerHTML.includes("Error") || screen.innerHTML == 0) {
             screen.innerHTML += "";
             memtab.innerHTML += "";
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
         } else 
          var result = eval (getText);
         if (result.toString().length >=10) {
@@ -186,28 +270,29 @@ function evl() {
                 memtab.innerHTML += (brso + "=" + result + sc + br + br);
                 memtabBeforOperation = memtab.innerHTML;
                 resultMyCalcJs = result;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
             } else {
                     screen.innerHTML += "<br><span class='result'>=" + result + "</span>";
                     memtab.innerHTML += "<br><span class='result'>=" + result + "</span><br><br>";
                     memtabBeforOperation = memtab.innerHTML;
                     resultMyCalcJs = result;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+               screen.scrollTop = 9999;
+               memtab.scrollTop = 9999;
             } ;
     } catch (error) {
         screen.innerHTML = "Error";
         memtab.innerHTML = (memtab.lastChild.nodeName == "BR") ? memtab.innerHTML + "" : memtab.innerHTML + "<br><br>";
         memtabBeforOperation = memtab.innerHTML;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     }; 
 } 
 
 function ch() {
     var memtab = document.getElementById("memtab");
     memtab.innerHTML = "";
+    memtabBeforOperation = "";
 }
 
 function  del() {
@@ -216,8 +301,8 @@ function  del() {
     if (screen.innerHTML == "Error" || screen.innerHTML == 0 || screen.innerText.length == 1 || screen.innerHTML == "√"  || screen.innerHTML == "-"  || screen.innerHTML == "("  || screen.innerHTML == ")" || screen.innerHTML.includes("=")) {
         screen.innerHTML = "0";
         memtab.innerHTML = memtabBeforOperation;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+               memtab.scrollTop = 9999;
     } else {
         var text = screen.innerText.substr(0, screen.innerText.length-1);
         var so = "<span>";
@@ -231,8 +316,30 @@ function  del() {
         text = text.replace (/\)/g, so + ")" + sc);
         screen.innerHTML = text;
         memtab.innerHTML = memtabBeforOperation + text;
-                document.getElementById("screen").scrollTop = 9999;
-                document.getElementById("memtab").scrollTop = 9999;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     };
+}
+
+function aside() {
+    var ap = document.getElementById("adpanel").style;
+    var w = document.getElementById("wrap").style;
+    var b = document.getElementById("btns").style;
+    var l = document.getElementById("sidebtnlabel").style;
+    if (ap.width === "") {
+    ap.width = "89.7px"; 
+    w.marginLeft = "100.3px";
+    w.width = "808px";
+    b.boxShadow = "inset 3px 0 7px -1px rgba(5,5,5,.47)";
+    l.color = "rgb(0, 121, 140)";
+    l.transform = "rotate(180deg)";
+} else if (ap.width === "89.7px") {
+    ap.width = "";
+    w.marginLeft = "190px";
+    w.width = "718px";
+    b.boxShadow = "inset 0 2px rgba(72,72,72,1)";
+    l.color = "rgb(25,25,25)";
+    l.transform = "rotate(0deg)";
+};
 }
 
