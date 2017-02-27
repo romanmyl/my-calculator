@@ -71,7 +71,7 @@ function pi() {
     function devx() {
         var screen = document.getElementById("screen");
         var memtab = document.getElementById("memtab");
-        var op1 = "<span>1&#247;(</span>";
+        var op1 = "<span>&#185;/(</span>";
         var op2 = "<span>)</span>";
         if (screen.innerHTML == "0" || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
             if ( screen.innerHTML.includes("=")) {
@@ -97,7 +97,7 @@ function pi() {
     var memtab = document.getElementById("memtab");
     var op1 = "<span>(</span>";
         var op2 = "<span>)&#178;</span>";
-    if (screen.innerText.endsWith("²") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
+    if (screen.innerText.endsWith("²") == false && screen.innerText.endsWith("ˆ(") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
         if (screen.innerHTML.includes("=")) {
             screen.innerHTML = op1 + resultMyCalcJs + op2;
             memtab.innerHTML = memtabBeforOperation + op1 + resultMyCalcJs + op2;
@@ -111,10 +111,53 @@ function pi() {
             } } ;
     }
 
+    function powy() {
+    var screen = document.getElementById("screen");
+    var memtab = document.getElementById("memtab");
+    var op1 = "<span>(</span>";
+    var op2 = "<span>)&#710;(</span>";
+    if (screen.innerText.endsWith("ˆ(") == false && screen.innerText.endsWith("²") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
+        if (screen.innerHTML.includes("=")) {
+            screen.innerHTML = op1 + resultMyCalcJs + op2;
+            memtab.innerHTML = memtabBeforOperation + op1 + resultMyCalcJs + op2;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+        } else {
+            screen.innerHTML = op1 + screen.innerHTML + op2;
+            memtab.innerHTML = memtabBeforOperation + screen.innerHTML;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+            } } ;
+    }
+
+    function squary() {
+    var screen = document.getElementById("screen");
+    var memtab = document.getElementById("memtab");
+    var op1 = "<span>[</span>";
+    var op2 = "<span>]&#8730;(</span>";
+    var op3 = "<span>)</span>";
+    if (screen.innerText.endsWith("ˆ(") == false && screen.innerText.endsWith("²") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
+        if (screen.innerHTML.includes("=")) {
+            screen.innerHTML = op1 + "3";
+            squarxy = op2 + resultMyCalcJs + op3;
+            memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+        } else {
+            squarxy = op2 + screen.innerHTML + op3;
+            screen.innerHTML = op1;
+            memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+            } } ;
+    }
+
+
 function math(i) {
     var screen = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
     var pi =Math.PI.toFixed(7);
+   
     if (screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
         screen.innerHTML = i;
         memtab.innerHTML += i;
@@ -132,6 +175,11 @@ function math(i) {
     } else if (screen.innerHTML.endsWith(pi)) {
         screen.innerHTML += "";
         memtab.innerHTML += "";
+    } else if (screen.innerText.includes("[")) {
+        screen.innerHTML += i;
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
     } else {
        screen.innerHTML += i;
        memtab.innerHTML += i;
@@ -146,6 +194,11 @@ function dot(d) {
     if (screen.innerHTML.endsWith(d) || screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
         screen.innerHTML += "";
         memtab.innerHTML += "";
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+    } else if (screen.innerText.includes("[")) {
+        screen.innerHTML += d;
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
     } else {
@@ -166,8 +219,12 @@ function operator(opr) {
             memtab.innerHTML = memtabBeforOperation + resultMyCalcJs + op;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
-        }
-        else {
+        } else if (screen.innerText.includes("[")) {
+        screen.innerHTML += op;
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+    } else {
             screen.innerHTML += op;
             memtab.innerHTML += op;
                 screen.scrollTop = 9999;
@@ -190,7 +247,12 @@ function operator(opr) {
              memtab.innerHTML += op;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
-         }; } else {
+         }; } else if (screen.innerText.includes("[")) {
+        screen.innerHTML += op;
+        memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
+                screen.scrollTop = 9999;
+                memtab.scrollTop = 9999;
+    } else {
             screen.innerHTML += op;
             memtab.innerHTML += op;
                 screen.scrollTop = 9999;
@@ -213,9 +275,14 @@ function operator(opr) {
                memtab.innerHTML += op;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
-           } } else {
-            screen.innerHTML += op;
-            memtab.innerHTML += op;
+           } } else if (screen.innerText.includes("[")) {
+                screen.innerHTML += op;
+                memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
+                    screen.scrollTop = 9999;
+                    memtab.scrollTop = 9999;
+    } else {
+             screen.innerHTML += op;
+             memtab.innerHTML += op;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
         } 
@@ -228,7 +295,7 @@ function operator(opr) {
         var countBrickets = screen.innerText.split("(").length - screen.innerText.split(")").length;
         if ( screen.innerHTML !== "0" && screen.innerHTML !== "Error" && countBrickets > 0 && screen.innerHTML.includes("=") == false) {
          screen.innerHTML += op;
-         memtab.innerHTML += op;
+         memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
      };
@@ -244,15 +311,27 @@ function operator(opr) {
 }
 
 function evl() {
-    var screen = document.getElementById("screen");
+    var scr = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
+    if ( scr.innerText.includes("[") && scr.innerText.includes("]") != true)  { 
+        scr.innerHTML = memtab.innerHTML.substr(memtabBeforOperation.length);
+    } else {
+    var screen = document.getElementById("screen");
     var getText = screen.innerText; 
           getText = getText.replace( /×/g, "*");
           getText = getText.replace( /÷/g, "/");
-          getText = getText.replace( /√/g, "Math.sqrt");
+          getText = getText.replace( /¹/g, "1");
+
+    var powx = getText.indexOf("ˆ")
+    var squary = getText.slice(getText.indexOf("[")+1, getText.indexOf("]√"));
+    var squarx = getText.slice(getText.indexOf("]√")+2)
 
           getText = (getText.includes("²")) ? "Math.pow(" + getText.replace( /²/g, "") + ", 2)" :  getText;
+          getText = (getText.includes("ˆ")) ? "Math.pow(" + getText.slice(0, powx) + ", " + getText.slice(powx+2, -1) + ")" : getText;
+          getText = (getText.includes("]√")) ? "Math.pow(" + squarx + ", 1/(" + squary + "))" : getText;
     
+          getText = getText.replace( /√/g, "Math.sqrt");
+
     var br = "<br>";
     var brso = "<br><span class='result'>";
     var sc = "</span>";
@@ -260,6 +339,7 @@ function evl() {
         if (screen.innerHTML.includes("=") || screen.innerHTML.includes("Error") || screen.innerHTML == 0) {
             screen.innerHTML += "";
             memtab.innerHTML += "";
+            squarxy = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
         } else 
@@ -270,6 +350,7 @@ function evl() {
                 memtab.innerHTML += (brso + "=" + result + sc + br + br);
                 memtabBeforOperation = memtab.innerHTML;
                 resultMyCalcJs = result;
+                sqarxy = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
             } else {
@@ -277,20 +358,23 @@ function evl() {
                     memtab.innerHTML += "<br><span class='result'>=" + result + "</span><br><br>";
                     memtabBeforOperation = memtab.innerHTML;
                     resultMyCalcJs = result;
+                    sqarxy = "";
                screen.scrollTop = 9999;
                memtab.scrollTop = 9999;
-            } ;
+         } ;
     } catch (error) {
         screen.innerHTML = "Error";
         memtab.innerHTML = (memtab.lastChild.nodeName == "BR") ? memtab.innerHTML + "" : memtab.innerHTML + "<br><br>";
         memtabBeforOperation = memtab.innerHTML;
+        sqarxy = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
-    }; 
+    } }; 
 } 
 
 function ch() {
     var memtab = document.getElementById("memtab");
+    sqarxy = "";
     memtab.innerHTML = "";
     memtabBeforOperation = "";
 }
@@ -301,7 +385,8 @@ function  del() {
     if (screen.innerHTML == "Error" || screen.innerHTML == 0 || screen.innerText.length == 1 || screen.innerHTML == "√"  || screen.innerHTML == "-"  || screen.innerHTML == "("  || screen.innerHTML == ")" || screen.innerHTML.includes("=")) {
         screen.innerHTML = "0";
         memtab.innerHTML = memtabBeforOperation;
-                screen.scrollTop = 9999;
+               sqarxy = "";
+               screen.scrollTop = 9999;
                memtab.scrollTop = 9999;
     } else {
         var text = screen.innerText.substr(0, screen.innerText.length-1);
@@ -314,6 +399,7 @@ function  del() {
         text = text.replace (/\√/g, so + "√" + sc);
         text = text.replace (/\(/g, so + "(" + sc);
         text = text.replace (/\)/g, so + ")" + sc);
+        text = text.replace (/\[/g, so + "[" + sc);
         screen.innerHTML = text;
         memtab.innerHTML = memtabBeforOperation + text;
                 screen.scrollTop = 9999;
