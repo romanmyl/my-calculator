@@ -315,6 +315,7 @@ function evl() {
     var memtab = document.getElementById("memtab");
     if ( scr.innerText.includes("[") && scr.innerText.includes("]") != true)  { 
         scr.innerHTML = memtab.innerHTML.substr(memtabBeforOperation.length);
+       setTimeout(evl, 750);
     } else {
     var screen = document.getElementById("screen");
     var getText = screen.innerText; 
