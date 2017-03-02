@@ -1,34 +1,35 @@
 
 var resultMyCalcJs = 0;
 var memtabBeforOperation = "";
+var squarxy = "";
 
 addEventListener("keydown", function(event) {
-    if ((event.keyCode == 56 && event.shiftKey) || event.keyCode == 38) {
+    if ((event.keyCode === 56 && event.shiftKey) || event.keyCode === 38) {
         operator("&#215;");
-    } else if ((event.keyCode == 187 && event.shiftKey) || event.keyCode == 39) {
+    } else if ((event.keyCode === 187 && event.shiftKey) || event.keyCode === 39) {
         operator("+");
-    } else if (event.keyCode == 40 && event.shiftKey) {
+    } else if (event.keyCode === 40 && event.shiftKey) {
         operBefor("&#8730;(");
-    } else if (event.keyCode == 57 && event.shiftKey) {
+    } else if (event.keyCode === 57 && event.shiftKey) {
         operBefor("(");
-    }else if (event.keyCode == 48 && event.shiftKey) {
+    }else if (event.keyCode === 48 && event.shiftKey) {
         operBrClose(")");
-    } else if (event.keyCode == 46 && event.shiftKey) {
+    } else if (event.keyCode === 46 && event.shiftKey) {
         ch();
-    } else if (event.keyCode == 191 || event.keyCode == 40) {
+    } else if (event.keyCode === 191 || event.keyCode === 40) {
         operator("&#247;");
-    } else if (event.keyCode == 189 || event.keyCode == 37) {
+    } else if (event.keyCode === 189 || event.keyCode === 37) {
         operMinus("-");
-    } else if (event.keyCode == 191 || event.keyCode == 190) {
+    } else if (event.keyCode === 191 || event.keyCode === 190) {
         dot(".");
     } else if (event.keyCode > 47 && event.keyCode < 58) {
         var i = event.keyCode - 48;
         math(i);
-    } else if (event.keyCode == 13) {
+    } else if (event.keyCode === 13) {
         evl();
-    } else if (event.keyCode == 46) {
+    } else if (event.keyCode === 46) {
         c();
-    } else if (event.keyCode == 8) {
+    } else if (event.keyCode === 8) {
         del();
     };
 })
@@ -36,7 +37,7 @@ addEventListener("keydown", function(event) {
 function pi() {
     var screen = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
-    var pi = Math.PI.toFixed(7);
+    var pi = "<span>π</span>";
     var num = Number(screen.innerText);
     if (screen.innerHTML.endsWith(num)) {
          if (screen.innerHTML == "0") {
@@ -152,11 +153,10 @@ function pi() {
             } } ;
     }
 
-
 function math(i) {
     var screen = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
-    var pi =Math.PI.toFixed(7);
+    var pi = "π";
    
     if (screen.innerHTML == "Error" || screen.innerHTML.includes("=")) {
         screen.innerHTML = i;
@@ -172,7 +172,7 @@ function math(i) {
         memtab.innerHTML += i;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
-    } else if (screen.innerHTML.endsWith(pi)) {
+    } else if (screen.innerText.endsWith(pi)) {
         screen.innerHTML += "";
         memtab.innerHTML += "";
     } else if (screen.innerText.includes("[")) {
@@ -306,6 +306,7 @@ function operator(opr) {
     var memtab = document.getElementById("memtab");
     screen.innerHTML = "0";
     memtab.innerHTML = memtabBeforOperation;
+    sqarxy = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
 }
@@ -313,15 +314,21 @@ function operator(opr) {
 function evl() {
     var scr = document.getElementById("screen");
     var memtab = document.getElementById("memtab");
+    var degrad = (document.getElementById("deg").checked) ? "Math.PI/180" : 1;
     if ( scr.innerText.includes("[") && scr.innerText.includes("]") != true)  { 
         scr.innerHTML = memtab.innerHTML.substr(memtabBeforOperation.length);
-       setTimeout(evl, 750);
+       setTimeout(evl, 1000);
     } else {
     var screen = document.getElementById("screen");
     var getText = screen.innerText; 
           getText = getText.replace( /×/g, "*");
           getText = getText.replace( /÷/g, "/");
           getText = getText.replace( /¹/g, "1");
+          getText = getText.replace( /π/g, "Math.PI");
+          getText = getText.replace( /sin\(/g, "Math.sin\(" + degrad + "*");
+          getText = getText.replace( /cos\(/g, "Math.cos\(" + degrad + "*");
+          getText = getText.replace( /tan\(/g, "Math.tan\(" + degrad + "*");
+          getText = getText.replace( /ctn\(/g, "1/Math.tan\(" + degrad + "*");
 
     var powx = getText.indexOf("ˆ")
     var squary = getText.slice(getText.indexOf("[")+1, getText.indexOf("]√"));
@@ -401,6 +408,15 @@ function  del() {
         text = text.replace (/\(/g, so + "(" + sc);
         text = text.replace (/\)/g, so + ")" + sc);
         text = text.replace (/\[/g, so + "[" + sc);
+        text = text.replace (/\]/g, so + "]" + sc);
+        text = text.replace (/sin/g, so + "sin" + sc);
+        text = text.replace (/cos/g, so + "cos" + sc);
+        text = text.replace (/tan/g, so + "tan" + sc);
+        text = text.replace (/ctn/g, so + "ctn" + sc);
+        text = text.replace (/\π/g, so + "π" + sc);
+        text = text.replace (/\¹\//g, so + "¹/" + sc);
+        text = text.replace (/\²/g, so + "²" + sc);
+        text = text.replace (/\ˆ/g, so + "ˆ" + sc);
         screen.innerHTML = text;
         memtab.innerHTML = memtabBeforOperation + text;
                 screen.scrollTop = 9999;
@@ -411,22 +427,27 @@ function  del() {
 function aside() {
     var ap = document.getElementById("adpanel").style;
     var w = document.getElementById("wrap").style;
-    var b = document.getElementById("btns").style;
     var l = document.getElementById("sidebtnlabel").style;
+    var b = document.getElementById("btns").style;
+    var ul = document.getElementById("underline").style;
     if (ap.width === "") {
     ap.width = "89.7px"; 
     w.marginLeft = "100.3px";
     w.width = "808px";
-    b.boxShadow = "inset 3px 0 7px -1px rgba(5,5,5,.47)";
     l.color = "rgb(0, 121, 140)";
+    l.textShadow = "-2px 2px 6px #005959, 2px -2px 6px #005959";
     l.transform = "rotate(180deg)";
+    b.boxShadow = "inset 0px 0 2px -2px rgba(5,5,5,.47)";
+    ul.width = "102px";
 } else if (ap.width === "89.7px") {
     ap.width = "";
     w.marginLeft = "190px";
     w.width = "718px";
-    b.boxShadow = "inset 0 2px rgba(72,72,72,1)";
     l.color = "rgb(25,25,25)";
+    l.textShadow = "0 0 0 #005959";
     l.transform = "rotate(0deg)";
+    b.boxShadow = "inset 0 2px rgba(72,72,72,1)";
+    ul.width = "190px";
 };
 }
 

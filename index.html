@@ -11,10 +11,10 @@
 	<div id="wrap" >
 	<div id="adpanel">
 		<div id="aside">
-				<input class="btnscos" type="button" value="ctan" onclick="ctan()">
-				<input class="btnscos" type="button" value="tan" onclick="tan()">
-				<input class="btnscos" type="button" value="cos" onclick="cos()">
-				<input class="btnscos" type="button" value="sin" onclick="sin()">
+				<input class="btnscos" type="button" value="ctn" onclick='operBefor("ctn(")'>
+				<input class="btnscos" type="button" value="tan" onclick='operBefor("tan(")'>
+				<input class="btnscos" type="button" value="cos" onclick='operBefor("cos(")'>
+				<input class="btnscos" type="button" value="sin" onclick='operBefor("sin(")'>
 				<input class="btnside" type="button" value="&#960;" onclick="pi()">
 				<input class="btnside" type="button" value="&#185;/x" onclick="devx()">
 				<input class="btnside" type="button" value="x&#178;" onclick="pow2()">
@@ -29,6 +29,12 @@
 				<div id="btnwrap">
 					<input id="btns" type="button" onclick="aside()"><span id="sidebtnlabel" onclick="aside()">&#9668;</span></input>
 					<div id="underline"><span id="mr">mR</span>&#8195;&#8194;</div>
+					<div id="asider">
+						<input id="rad" type="radio" name="degrad"/>
+							<label for="rad">rad</label>
+						<input id="deg" checked type="radio" name="degrad"/>
+							<label for="deg">deg</label>
+					</div>
 				</div>
 			</div>
 			<div class=keys>
