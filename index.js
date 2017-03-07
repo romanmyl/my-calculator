@@ -2,8 +2,6 @@
 var resultMyCalcJs = 0;
 var memtabBeforOperation = "";
 var squarxy = "";
-var argXpoq = "";
-var argXsqr = "";
 
 addEventListener("keydown", function(event) {
     if ((event.keyCode === 56 && event.shiftKey) || event.keyCode === 38) {
@@ -121,13 +119,11 @@ function pi() {
     var op2 = "<span>)&#710;(</span>";
     if (screen.innerText.endsWith("ˆ(") == false && screen.innerText.endsWith("²") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
         if (screen.innerHTML.includes("=")) {
-            argXpow = evl();
             screen.innerHTML = op1 + resultMyCalcJs + op2;
             memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
         } else {
-            argXpow = evl();
             screen.innerHTML = op1 + screen.innerHTML + op2;
             memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
                 screen.scrollTop = 9999;
@@ -143,14 +139,12 @@ function pi() {
     var op3 = "<span>)</span>";
     if (screen.innerText.endsWith("ˆ(") == false && screen.innerHTML != "0" && screen.innerHTML != "Error") {
         if (screen.innerHTML.includes("=")) {
-            argXsqr = evl();
             screen.innerHTML = op1;
             squarxy = op2 + resultMyCalcJs + op3;
             memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
         } else {
-            argXsqr = evl();
             squarxy = op2 + screen.innerHTML + op3;
             screen.innerHTML = op1;
             memtab.innerHTML = memtabBeforOperation + screen.innerHTML + squarxy;
@@ -314,8 +308,6 @@ function operator(opr) {
     screen.innerHTML = "0";
     memtab.innerHTML = memtabBeforOperation;
     squarxy = "";
-    argXpow = "";
-    argXsqr = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
 }
@@ -326,7 +318,7 @@ function evl() {
     var degrad = (document.getElementById("deg").checked) ? "Math.PI/180" : 1;
     if ( scr.innerText.includes("[") && scr.innerText.includes("]") != true)  { 
         scr.innerHTML = memtab.innerHTML.substr(memtabBeforOperation.length);
-        setTimeout(evl, 1000);
+        setTimeout(evl, 750);
     } else {
     var screen = document.getElementById("screen");
     var getText = screen.innerText; 
@@ -340,13 +332,40 @@ function evl() {
           getText = getText.replace( /ctn\(/g, "1/Math.tan\(" + degrad + "*");
 
     var powx = getText.indexOf("ˆ");
-    var squary = getText.slice(getText.indexOf("[")+1, getText.indexOf("]√"));
-    var squarx = getText.slice(getText.indexOf("]√")+2);
+    var sqry = getText.slice(getText.indexOf("[")+1, getText.indexOf("]√"));
+    var sqrx = getText.slice(getText.indexOf("]√")+2);
 
-          getText = (getText.includes("²")) ? "Math.pow(" + getText.replace( /²/g, "") + ", 2)" :  getText;
-          getText = (getText.includes("ˆ")) ? "Math.pow(" + argXpow + ", " + getText.slice(powx+2, -1) + ")" : getText;
-          getText = (getText.includes("]√")) ? "Math.pow(" + squarx + ", 1/(" + argXsqr + "))" : getText;    
-          getText = getText.replace( /√/g, "Math.sqrt");
+          getText = (getText.includes("²")) ? p2(getText) :  getText;
+          getText = (getText.includes("ˆ")) ? "Math.pow(" + getText.slice(0, powx) + ", " + getText.slice(powx+2, -1) + ")" : getText;
+          getText = (getText.includes("]√")) ? "Math.pow(" + sqrx + ", 1/(" + sqry + "))" : getText = (getText.includes("√")) ? getText.replace( /\√/g, "Math.sqrt") : getText; 
+
+          function p2(t) {
+            var b =t.match( /\²/g);
+            var c = b.length;
+            for (var i = 0; i < c; i++) {
+                var pos2 = t.indexOf("²");
+                var pos1 = brickets(t.slice(0, pos2));
+                var posN = t.slice(0, pos1);
+                var evalText = "Math.pow\((" + t.slice(pos1+1, pos2) + ", 2\)";
+                var getText2 = eval(evalText) + t.slice(pos2+1);
+                t = t.slice(0, pos1) + getText2;
+            } return t;
+          };
+
+          function brickets(t) {
+            var cBr = 1;
+            var posBr;
+            var posBr2 = t.lastIndexOf("\)") - 1;
+            for (posBr2; posBr2 >= 0; posBr2--) {
+                cBr = (t.charAt(posBr2) == "\)") ? cBr+1 : cBr;
+                cBr = (t.charAt(posBr2) == "\(") ? cBr-1 : cBr;
+                if (cBr == 0)  {
+                 posBr = posBr2;
+                 posBr2 = 0;
+             } else { posBr = posBr; 
+             };
+            } return posBr;
+          } 
 
     var br = "<br>";
     var brso = "<br><span class='result'>";
@@ -356,8 +375,6 @@ function evl() {
             screen.innerHTML += "";
             memtab.innerHTML += "";
             squarxy = "";
-            argXpow = "";
-            argXsqr = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
         } else 
@@ -369,8 +386,6 @@ function evl() {
                 memtabBeforOperation = memtab.innerHTML;
                 resultMyCalcJs = result;
                 squarxy = "";
-                argXpow = "";
-                argXsqr = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
             } else {
@@ -379,8 +394,6 @@ function evl() {
                     memtabBeforOperation = memtab.innerHTML;
                     resultMyCalcJs = result;
                     squarxy = "";
-                    argXpow = "";
-                    argXsqr = "";
                screen.scrollTop = 9999;
                memtab.scrollTop = 9999;
          } ;
@@ -389,18 +402,15 @@ function evl() {
         memtab.innerHTML = (memtab.lastChild.nodeName == "BR") ? memtab.innerHTML + "" : memtab.innerHTML + "<br><br>";
         memtabBeforOperation = memtab.innerHTML;
         squarxy = "";
-        argXpow = "";
-        argXsqr = "";
                 screen.scrollTop = 9999;
                 memtab.scrollTop = 9999;
-    } }; 
+    } 
 } 
+}
 
 function ch() {
     var memtab = document.getElementById("memtab");
     squarxy = "";
-    argXpow = "";
-    argXsqr = "";
     memtab.innerHTML = "";
     memtabBeforOperation = "";
 }
@@ -412,8 +422,6 @@ function  del() {
         screen.innerHTML = "0";
         memtab.innerHTML = memtabBeforOperation;
         squarxy = "";
-        argXpow = "";
-        argXsqr = "";
                screen.scrollTop = 9999;
                memtab.scrollTop = 9999;
     } else {
@@ -469,4 +477,4 @@ function aside() {
     b.boxShadow = "inset 0 2px rgba(72,72,72,1)";
     ul.width = "190px";
 };
-}
+}і
